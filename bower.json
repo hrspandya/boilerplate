@@ -1,0 +1,32 @@
+//TO ADD MORE BOWER COMPONENTS 
+// GO TO TERMINAL - GO TO MAIN FOLDER WHERE BOWER.JSON IS 
+//RUN THIS COMMAND    bower install -S jquery
+//THIS WILL AUTOMATICALLY UPDATE THIS FILE AND ADD DEPENDENCIES 
+
+//bower install -S jquery
+
+
+{
+  "name": "Boilerplate",
+  "version": "0.0.1",
+  "homepage": "https://github.com/hrspandya/boilerplate",
+  "authors": [
+    "Harsh Pandya <hrspandya@gmail.com>"
+  ],
+  "description": "Bower for Boilerplate",
+  "keywords": [
+    "boilerplate"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "requirejs": "~2.1.20"
+  }
+}
