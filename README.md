@@ -1,2 +1,2 @@
 # boilerplate
-Grunt + Bower + RequireJs + HTML 5 
+Grunt + Bower + RequireJs + Backbone + HTML 5
