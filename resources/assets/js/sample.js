@@ -1,5 +1,8 @@
 define(function(require){
 
+	require("jquery");
+
+
 	var sampleObj = function(){
 		console.log("sample Obj constructor called");
 	}

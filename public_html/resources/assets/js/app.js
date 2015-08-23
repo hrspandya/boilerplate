@@ -1,2 +1,2 @@
-/* Boilerplate - v0.1.0 - 2015-08-22 */
-require(["sample"],function(a){var b=new a;b.callMe()});
+/* Boilerplate - v0.1.0 - 2015-08-23 */
+require(["sample","appRoute"],function(a,b){var c=new a;c.callMe()});

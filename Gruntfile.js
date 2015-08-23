@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
 
-    // config
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         banner: '/* <%= pkg.name || javascript %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */\n',
@@ -8,23 +7,37 @@ module.exports = function(grunt) {
             src: ['<%= pkg.web_assets_dir %>/**']
         },
         copy: {
-            scripts: {
+            development: {
                 files: [
-                    {
+                    {   //Move Bower files from bower_components to resources libs folder for development use
+                        expand: true,
+                        flatten: true,
+                        cwd: 'bower_components/',
+                        src: [                            
+                            //Move all bower libs to resource
+                            'requirejs/require.js',
+                            'jquery/dist/jquery.js',
+                            'backbone/backbone-min.js',
+                            'underscore/underscore-min.js'                                                        
+                        ],
+                        dest: '<%= pkg.source_assets_dir %>/js/libs/'
+                    }                    
+                ]
+            },
+
+            production: {
+                files: [
+                    {   //Move resources files to public_html folder for production use
                         expand: true,
                         src: [
-                          '<%= pkg.source_assets_dir %>/js/**',
-                            // '<%= pkg.source_assets_dir %>/js/app/**',
-                            // '<%= pkg.source_assets_dir %>/js/require.config.js',
-                            // '<%= pkg.source_assets_dir %>/js/lib/requirejs/require.js',
-                            // '<%= pkg.source_assets_dir %>/js/lib/jquery/dist/jquery.js',
-                            // '<%= pkg.source_assets_dir %>/js/lib/bootstrap/dist/js/bootstrap.js',
-                            // '<%= pkg.source_assets_dir %>/js/lib/bootstrap/js/**'
+                            '<%= pkg.source_assets_dir %>/js/**',
+                            //Move all libs to resource                            
                         ],
                         dest: '<%= pkg.web_dir %>'
                     }
                 ]
             },
+
             extra: {
                 files: [
                     {
@@ -113,7 +126,46 @@ module.exports = function(grunt) {
             options: {
                 port: 9000
             }
+        },        
+
+        // requirejs : {
+        //     my_build : {
+        //         options : {
+        //             optimize : "none", 
+        //             findNestedDependencies : true,
+        //             appDir  : "./",
+        //             baseUrl : "./",
+        //             dir : "./build",
+        //             logLevel : 1,
+        //             mainConfigFile : [
+        //                 "resources/assets/js/rconfig/rconfig.js"
+        //             ],
+        //             modules : [
+        //                 {
+        //                     "name" : "resources/assets/js/app",
+        //                     create : false
+        //                 }
+        //             ]
+        //         }
+        //     }
+        // }
+
+
+
+        requirejs : {
+            compile: {
+                options: {
+                    name: 'resources/assets/js/app',
+                    baseUrl: '',
+                    out: 'resources/assets/js/app-build.js',
+                    mainConfigFile : [
+                        "resources/assets/js/rconfig/rconfig.js"                        
+                    ]
+                }
+            }
         }
+
+
 
     });
 
@@ -124,10 +176,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-serve');
 
     // tasks
-    grunt.registerTask('default', ['clean', 'copy', 'uglify', 'less', 'cssmin']);
+    grunt.registerTask('default', ['clean', 'requirejs', 'copy', 'uglify', 'less', 'cssmin']);
 
 
     // watch tasks
@@ -136,6 +189,9 @@ module.exports = function(grunt) {
 
     // connect server task
     grunt.registerTask('server', ['serve']);
+
+    // requireJs to combine all js files and uglify task
+    grunt.registerTask('combine', ['requirejs']);
 
 
 };

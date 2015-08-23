@@ -1,0 +1,2 @@
+/* Boilerplate - v0.1.0 - 2015-08-23 */
+require.config({baseUrl:"./",paths:{requirejs:"resources/assets/js/libs/require",jquery:"resources/assets/js/libs/jquery",appRoute:"resources/assets/js/routes/appRoute",sample:"resources/assets/js/sample"},shim:{bootstrap:{deps:["jquery"],exports:"$.fn.popover"}}});
