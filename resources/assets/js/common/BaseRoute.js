@@ -13,11 +13,12 @@ define(function(require){
 
 			//initialize navbar menu 
 
-			
-
+		},
+		
+		loadView : function(element, viewElement){
+			$(element).html(viewElement.render().el);
 		}
-
-
+		
 	});
 
 	return ccRoute;

@@ -14,12 +14,12 @@ define(function(require){
 			"home" : "home",
 			"contact" : "contact",
 
-			home : function(){
-				$(".container").html(new homeView().render().el);
+			home : function(){				
+				this.loadView(".container", new homeView());				
 			},
 
 			contact : function(){
-				$(".container").html(new contactView().render().el);
+				this.loadView(".container", new contactView());
 			}
 
 		}

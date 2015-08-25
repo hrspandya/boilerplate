@@ -8,11 +8,7 @@ define(function(require){
 
 	var ccView = Backbone.View.extend({
 		
-		//Common methods accross all Views
-
-		loadView : function(element, viewElement){
-			$(element).html(viewElement);
-		}
+		//Common methods accross all Views		
 
 	});
 
