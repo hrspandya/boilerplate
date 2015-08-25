@@ -32,11 +32,13 @@ require.config({
       //-------------------------------------------
 
 
-    },
-    shim : {
-    	"bootstrap": {
-            "deps": ["jquery"],
-            "exports": "$.fn.popover"
-        }
     }
+
+    // ,
+    // shim : {
+    // 	"bootstrap": {
+    //         "deps": ["jquery"],
+    //         "exports": "$.fn.popover"
+    //     }
+    // }
 });

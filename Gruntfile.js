@@ -163,6 +163,12 @@ module.exports = function(grunt) {
                     ]
                 }
             }
+        },
+
+        karma : {
+            e2e : {
+                configFile : "resources/assets/js/test/karma.conf.js"
+            }
         }
 
 
@@ -177,6 +183,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-serve');
 
     // tasks
