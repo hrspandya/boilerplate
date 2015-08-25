@@ -1,9 +1,10 @@
-define(["sample", "appRoute"], function(){
+define(function(require){
 
-    // Activating jasmine jquery
-    //require("jasmine-jquery");
+	var sample = require("sample");
 
-	//var sample = require("jquery");	
+	require("appRoute");
+	require("jasmine-jquery");
+
 
 	describe('Hello world', function() {
 

@@ -9,5 +9,6 @@ bower_components/
 test/javascript/
 
 
-#production generated files
+# production generated files
+
 public_html

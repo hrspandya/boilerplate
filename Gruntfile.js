@@ -82,7 +82,7 @@ module.exports = function(grunt) {
                     paths: ['<%= pkg.source_assets_dir %>/less']
                 },
                 files: {
-                    '<%= pkg.source_assets_dir %>/css/sample.css': '<%= pkg.source_assets_dir %>/less/sample.less'
+                    '<%= pkg.source_assets_dir %>/css/style.css': '<%= pkg.source_assets_dir %>/less/*.less'
                 }
             }
         },
@@ -123,6 +123,7 @@ module.exports = function(grunt) {
             }
         },
         serve: {
+            'path': 'index.html',            
             options: {
                 port: 9000
             }
