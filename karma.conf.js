@@ -14,7 +14,10 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    //
+    //Understanding Files...  
+    //When you say included true , it means files will be loaded before it starts loading test-main and other specs files
+    //Lets say you do not add the pattern for all js and html files , then it will not be loaded and karma will fail
+    // so you need to add all files needed for your specs, js and html files which is needed for require js to work
     files: [      
       {pattern: 'resources/assets/js/test/**/*Spec.js', included: false},
       {pattern: 'resources/assets/js/**/*.js', included: false},
